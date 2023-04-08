@@ -1,14 +1,21 @@
 package com.example.aerolinea.entities;
 
+import java.util.Set;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
+@Table(name = "booking")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -22,7 +29,10 @@ public class Booking {
     private Flight outboundFlight;
     private String  paymentToken;
     private boolean checkedIn;
-    private User customer;
+
+    @OneToMany(mappedBy = "usuarios")
+    private Set<User> customers;
+    
     private String createdAt;
     private String bookingReference;
 
@@ -32,7 +42,7 @@ public class Booking {
                            booking.getOutboundFlight(),
                            booking.getPaymentToken(),
                            booking.isCheckedIn(),
-                           booking.getCustomer(),
+                           booking.getCustomers(),
                            booking.getCreatedAt(),
                            booking.getBookingReference());
     }

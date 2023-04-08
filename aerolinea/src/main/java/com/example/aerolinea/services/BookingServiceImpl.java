@@ -25,7 +25,7 @@ public class BookingServiceImpl implements BookingService {
                                    booking.getOutboundFlight(),
                                    booking.getPaymentToken(),
                                    booking.isCheckedIn(),
-                                   booking.getCustomer(),
+                                   booking.getCustomers(),
                                    booking.getCreatedAt(),
                                    booking.getBookingReference());
         return bookingRepository.save(copy);                           

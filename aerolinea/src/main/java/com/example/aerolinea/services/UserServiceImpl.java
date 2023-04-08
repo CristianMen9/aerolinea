@@ -23,7 +23,8 @@ public class UserServiceImpl implements UserService {
         User copy = new User(user.getId(),
                              user.getFullname(),
                              user.getUsername(),
-                             user.getPassword());
+                             user.getPassword(),
+                             user.getBooking());
         return userRepository.save(copy);                     
     }
 
