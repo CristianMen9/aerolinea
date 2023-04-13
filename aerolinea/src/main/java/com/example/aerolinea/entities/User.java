@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,16 +25,13 @@ public class User {
     private String fullname;
     private String username;
     private String password;
-    @ManyToOne
-    @JoinColumn(name = "booking_id")
-    private Booking booking;
+
 
     public User updatewith(User user){
         return new User(this.id,
                         user.getFullname(),
                         user.getUsername(),
-                        user.getPassword(),
-                        user.getBooking());
+                        user.getPassword());
                         
     }
 
