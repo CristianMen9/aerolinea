@@ -12,4 +12,6 @@ public class AerolineaApplication {
 		SpringApplication.run(AerolineaApplication.class, args);
 	}
 
+	
+
 }
